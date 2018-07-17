@@ -1,0 +1,22 @@
+{
+  "name": "jovo-plugin-email-error",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kaan Kilic",
+  "license": "MIT",
+  "peerDependencies": {
+    "jovo-framework": "^1.3.3"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.275.1",
+    "nodemailer": "^4.6.7",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "jovo-framework": "^1.3.3"
+  }
+}
