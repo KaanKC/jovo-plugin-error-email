@@ -46,13 +46,6 @@ class EmailError extends Plugin {
             to: this.toEmail,
             subject: this.subject,
             html: html,
-        }, (err, info) => {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log(info.envelope);
-                console.log(info.messageId);
-            }
         });
 
     }
