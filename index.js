@@ -31,7 +31,7 @@ class EmailError extends Plugin {
     }
 
     sendMail(jovo, errorType, error) {
-        let html = pug.renderFile('./node_modules/newPlugin/email.pug', {
+        let html = pug.renderFile(`${__dirname}/email.pug`, {
             errorType: errorType,
             stackTrace: error.stack.toString(),
             userId: jovo.getUserId(),
