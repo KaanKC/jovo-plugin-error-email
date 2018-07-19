@@ -2,11 +2,11 @@
 
 # Installation
 ```sh
-$ npm install jovo-plugin-email-error --save
+$ npm install jovo-plugin-error-email --save
 ```
 In your Jovo project:
 ```javascript
-const EmailError = require('jovo-plugin-email-error');
+const ErrorEmail = require('jovo-plugin-error-email');
 
 // Required:
 let options = {
@@ -19,7 +19,7 @@ let options = {
         region: 'region'
     }
 }
-app.register('EmailError', new EmailError(options));
+app.register('ErrorEmail', new ErrorEmail(options));
 ```
 
 The plugin works with the [Amazon Simple Email Service](https://aws.amazon.com/ses/) and [nodemailer](https://nodemailer.com/about/). As you saw above you need to provide the credentials to an AWS account, which has to have the following policy attached:
