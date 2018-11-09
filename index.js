@@ -9,13 +9,12 @@ class EmailError extends Plugin {
         this.fromEmail = options.fromEmail;
         this.toEmail = options.toEmail;
         this.subject = options.subject || 'An error has occured';
-        aws.config.update(options.awsConfig);
+        //aws.config.update(options.awsConfig);
 
+        options.awsConfig.apiVersion = '2010-12-01';
         // create Nodemailer SES transporter
         this.transporter = nodemailer.createTransport({
-            SES: new aws.SES({
-                apiVersion: '2010-12-01'
-            })
+            SES: new aws.SES(options.awsConfig)
         });
     }
 
