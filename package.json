@@ -1,6 +1,6 @@
 {
   "name": "jovo-plugin-error-email",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Jovo plugin to send out emails if an error occurs.",
   "main": "index.js",
   "scripts": {
