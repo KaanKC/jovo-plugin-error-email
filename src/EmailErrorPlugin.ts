@@ -1,4 +1,4 @@
-import { PluginConfig, Plugin, BaseApp, HandleRequest, Jovo } from 'jovo-core';
+import { PluginConfig, Plugin, BaseApp, HandleRequest } from 'jovo-core';
 import aws = require('aws-sdk');
 import nodemailer = require('nodemailer');
 import pug = require('pug');
