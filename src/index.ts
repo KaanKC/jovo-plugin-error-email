@@ -1,0 +1,1 @@
+export { EmailErrorPlugin } from './EmailErrorPlugin';
