@@ -2,7 +2,7 @@
 
 # Installation
 ```sh
-$ npm install jovo-plugin-error-email --save
+$ npm install jovo-plugin-error-email@1.0.1 --save-exact
 ```
 In your Jovo project:
 ```javascript
