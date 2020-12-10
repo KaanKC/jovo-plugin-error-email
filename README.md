@@ -33,14 +33,29 @@ module.exports = {
                 accessKeyId: 'access_key_id', // required
                 secretAccessKey: 'secret_access_key', // required
                 region: 'region' // required
+            },
+            smtpConfig: {
+                host: 'host', // required
+                port: 'port', // required
+                auth: {
+                    user: 'user', // required
+                    pass: 'password', // required
+                }
             }
+    }
         },
         // other plugins
     }
 };
 ```
 
-The plugin works with the [Amazon Simple Email Service](https://aws.amazon.com/ses/) and [nodemailer](https://nodemailer.com/about/). As you saw above you need to provide the credentials to an AWS account, which has to have the following policy attached:
+The plugin works with any [SMTP Server](https://nodemailer.com/smtp/) or [Amazon Simple Email Service](https://aws.amazon.com/ses/) and [nodemailer](https://nodemailer.com/about/).
+
+## Amazon Simple Email Service
+
+If you choose this option it is not necessary to fill the SMTP Server configuration.
+
+As you saw above you need to provide the credentials to an AWS account, which has to have the following policy attached:
 
 ```javascript
 {
@@ -65,6 +80,21 @@ and click on `Verify a New Email Address`:
 ![AWS SES Email Addresses](./_images/aws_ses_email_addresses.png)
 
 After typing in your email address, you will receive a confirmation email and you're good to go.
+
+## SMTP Server
+
+As you saw earlier, you need to provide the parameters to configure SMTP Server and you don't need to fill the AWS configuration.
+
+```javascript
+    smtpConfig: {
+        host: 'host', // required
+        port: 'port', // required
+        auth: {
+            user: 'user', // required
+            pass: 'password', // required
+        }
+    }
+```
 
 # License
 

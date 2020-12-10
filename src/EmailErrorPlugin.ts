@@ -19,7 +19,7 @@ export interface Config extends PluginConfig {
         auth: {
             user: string,
             pass: string
-        },
+        }
     }
 }
 
