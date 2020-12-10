@@ -5,7 +5,7 @@
   "main": "dist/src/index",
   "types": "dist/src/index.d.ts",
   "scripts": {
-    "copy-assets": "XCOPY /S /y .\\src\\*.pug .\\dist\\src",
+    "copy-assets": "shx mkdir -p ./dist/src && shx cp -r ./src/*.pug ./dist/src",
     "tsc": "tsc",
     "build": "npm run copy-assets && npm run tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,10 +19,11 @@
     "pug": "^2.0.3"
   },
   "devDependencies": {
-    "@types/node": "^10.3.1",
+    "@types/node": "^10.17.48",
     "@types/nodemailer": "^4.6.5",
     "@types/pug": "^2.0.4",
-    "typescript": "^3.2.2"
+    "shx": "^0.3.3",
+    "typescript": "^3.8.0"
   },
   "repository": {
     "type": "git",
