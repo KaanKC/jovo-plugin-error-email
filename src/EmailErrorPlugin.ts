@@ -7,11 +7,19 @@ export interface Config extends PluginConfig {
     fromEmail: string,
     toEmail: string,
     subject: string,
-    awsConfig: {
+    awsConfig?: {
         accessKeyId: string,
         secretAccessKey: string,
         region: string,
         apiVersion: string
+    },
+    smtpConfig?: {
+        host: string,
+        port: number,
+        auth: {
+            user: string,
+            pass: string
+        },
     }
 }
 
@@ -22,13 +30,7 @@ export class EmailErrorPlugin implements Plugin {
     config: Config = {
         fromEmail: '',
         toEmail: '',
-        subject: 'An error has occured',
-        awsConfig: {
-            accessKeyId: '',
-            secretAccessKey: '',
-            region: '',
-            apiVersion: '2010-12-01'
-        }
+        subject: 'An error has occurred'
     };
 
     transporter?: nodemailer.Transporter;
@@ -47,9 +49,20 @@ export class EmailErrorPlugin implements Plugin {
          * this.config gets the values from the config.js file before it's being installed and after the constructor is called, 
          * which is the reason we initialize the transporter here, instead of the constructor
          */
-        this.transporter = nodemailer.createTransport({
-            SES: new aws.SES(this.config.awsConfig)
-        });
+        if(this.config.awsConfig) {
+            this.transporter = nodemailer.createTransport({
+                SES: new aws.SES(this.config.awsConfig)
+            });
+        } else {
+            this.transporter = nodemailer.createTransport({
+                host: this.config.smtpConfig?.host,
+                port: this.config.smtpConfig?.port,
+                auth: {
+                    user: this.config.smtpConfig?.auth.user,
+                    pass: this.config.smtpConfig?.auth.pass
+                }
+            });
+        }
     }
     uninstall(app: BaseApp){
 
