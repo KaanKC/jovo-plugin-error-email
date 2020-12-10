@@ -42,7 +42,6 @@ module.exports = {
                     pass: 'password', // required
                 }
             }
-    }
         },
         // other plugins
     }
